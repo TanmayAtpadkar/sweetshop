@@ -29,12 +29,12 @@ async function comparethepin(pin, hash){
 // Generate JWT token
 function generatetoken(userdata){
   const payload = {
-    userid : userdata.userid,
+    email : userdata.email,
     username : userdata.username,
     role : userdata.role
   };
 
-  const token = jwt.sign(payload,process.env.JWTSECRET,{ expiresin : process.env.JWTEXPIRESIN });
+  const token = jwt.sign(payload,process.env.JWTSECRET,{ expiresIn : process.env.JWTEXPIRESIN });
 
   return token;
 };

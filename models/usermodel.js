@@ -2,7 +2,7 @@ const pool = require('../config/db.js');
 
 // Find users by Email
 async function finduserbyemail(email) {
-  const [result] = await pool.query('SELECT * FROM users WHERE email = ?', [email]);
+  const [result] = await pool.query(`SELECT * FROM users WHERE email = ? and active = 'y';`, [email]);
   return result.length ? result[0] : null;
 }
 
